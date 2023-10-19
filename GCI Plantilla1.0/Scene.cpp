@@ -64,23 +64,23 @@ bool Scene::Initialize() {
 	}
 
 	//Terreno = new Land(handlerWindow, OpenGL, LoaderTexture, L"recursos/heightmap.jpg", "recursos/test.tga", "recursos/Piedras_normal.jpg",(float)400, (float)400, 0, 1);
-	Terreno = new Land(handlerWindow, OpenGL, LoaderTexture, L"recursos/heightmap.jpg", "recursos/Piedras.jpg", "recursos/Piedras_normal.jpg", (float)400, (float)400, 0, 1);
+	Terreno = new Land(handlerWindow, OpenGL, LoaderTexture, L"recursos/heightmap.bmp", "recursos/Zacatito2.jpg", "recursos/ZacatitoNorm.jpg", (float)300, (float)300, 0, 1);
 	if (!Terreno){
 		result = false;
 		_RPT1(0, "Alert! Land has not been initialized. \n", 0);
 		return result;
 	}
 
-	Triangulo = new TriangleClass(OpenGL);
-	if (!Triangulo) {
-		result = false;
-		MessageBoxA(handlerWindow, "Could not initialize the triangle model object.", "Error", MB_OK);
-		_RPT1(0, "Alert! Triangle has not been initialized. \n", 0);
-		return result;
-	}
-	else {
-		Triangulo->SetShaderTriangle(ColorShader);
-	}
+	//Triangulo = new TriangleClass(OpenGL);
+	//if (!Triangulo) {
+	//	result = false;
+	//	MessageBoxA(handlerWindow, "Could not initialize the triangle model object.", "Error", MB_OK);
+	//	_RPT1(0, "Alert! Triangle has not been initialized. \n", 0);
+	//	return result;
+	//}
+	//else {
+	//	Triangulo->SetShaderTriangle(ColorShader);
+	//}
 
 	ShaderModel = new ShaderTexture(OpenGL, handlerWindow, "shaders/light.vs", "shaders/light.ps");
 	if (!ShaderModel) {
@@ -91,8 +91,8 @@ bool Scene::Initialize() {
 	}
 
 	Object3d = new GameObject(OpenGL, handlerWindow, LoaderTexture,
-		"recursos/WarGreymon/WarGreymon.obj",
-		"recursos/WarGreymon/WarGreymon.png");
+		"recursos/Pato/pato.obj",
+		"recursos/Pato/pato.jpg");
 	if (!Object3d) {
 		result = false;
 		MessageBoxA(handlerWindow, "Could not initialize the GameObject.", "Error", MB_OK);
@@ -108,9 +108,10 @@ bool Scene::Initialize() {
 		}
 		Object3d->SetShaderModel(ShaderModel);
 	}
+
 	Object3d1 = new GameObject(OpenGL, handlerWindow, LoaderTexture,
-		"recursos/Official Models/Tree1.obj",
-		"recursos/Official Models/Tree1T1.jpg");
+		"recursos/Jabali/jabali.obj",
+		"recursos/Jabali/jabali.bmp");
 	if (!Object3d1) {
 		result = false;
 		MessageBoxA(handlerWindow, "Could not initialize the GameObject.", "Error", MB_OK);
@@ -125,12 +126,12 @@ bool Scene::Initialize() {
 			return result;
 		}
 		Object3d1->SetShaderModel(ShaderModel);
-		Object3d1->AddTexture("recursos/Official Models/Tree1T2.jpg");
+		//Object3d1->AddTexture("recursos/Official Models/Tree1T2.jpg");
 	}
 
 	Object3d2 = new GameObject(OpenGL, handlerWindow, LoaderTexture, 
-		"recursos/WarGreymon/WarGreymon.obj",
-		"recursos/WarGreymon/WarGreymon2.png");
+		"recursos/Oso/oso.obj",
+		"recursos/Oso/oso.bmp");
 	if (!Object3d2) {
 		result = false;
 		MessageBoxA(handlerWindow, "Could not initialize the GameObject.", "Error", MB_OK);
@@ -145,6 +146,25 @@ bool Scene::Initialize() {
 			return result;
 		}
 		Object3d2->SetShaderModel(ShaderModel);
+	}
+
+	Object3d3 = new GameObject(OpenGL, handlerWindow, LoaderTexture,
+		"recursos/Gato/gato.obj",
+		"recursos/Gato/gato.jpg");
+	if (!Object3d3) {
+		result = false;
+		MessageBoxA(handlerWindow, "Could not initialize the GameObject.", "Error", MB_OK);
+		_RPT1(0, "Alert! GameObject has an error on start. \n", 0);
+		return result;
+	}
+	else {
+		result = Object3d3->Initialize();
+		if (!result) {
+			MessageBoxA(handlerWindow, "Could not initialize the model of Gameobject.", "Error", MB_OK);
+			_RPT1(0, "Alert! GameObject has an error on initialize. \n", 0);
+			return result;
+		}
+		Object3d3->SetShaderModel(ShaderModel);
 	}
 
 	return result;
@@ -183,12 +203,13 @@ bool Scene::Render() {
 	Terreno->Render(OpenGL);
 
 	// Renderizamos Triangulo (ya se logra ver en escena)
-	Triangulo->Render(viewMatrix, projectionMatrix);
+	//Triangulo->Render(viewMatrix, projectionMatrix);
 
 	// Renderizamos nuestro objeto en la escena
 	Object3d->Render(viewMatrix, projectionMatrix);
 	Object3d1->Render(viewMatrix, projectionMatrix);
 	Object3d2->Render(viewMatrix, projectionMatrix);
+	Object3d3->Render(viewMatrix, projectionMatrix);
 
 	// Damos la instruccion de que termino la escena para que nos muestre frame a frame.
 	OpenGL->EndScene();
@@ -208,17 +229,20 @@ bool Scene::Update(InputClass* input, float deltaTime) {
 		return result;
 	}
 
-	float* matrixTriangle = Triangulo->GetWorldMatrix();
-	OpenGL->MatrixTranslation(matrixTriangle, -20.0f, 8.0f, 0.0f);
+	//float* matrixTriangle = Triangulo->GetWorldMatrix();
+	//OpenGL->MatrixTranslation(matrixTriangle, -20.0f, 8.0f, 0.0f);
 
 	float* matrixGameObject = Object3d->GetWorldMatrix();
 	OpenGL->MatrixTranslation(matrixGameObject, -20.0f, 6.0f, -10.0f);
 
 	float* matrixGameObject1 = Object3d1->GetWorldMatrix();
-	OpenGL->MatrixTranslation(matrixGameObject1, -30.0f, 6.0f, -10.0f);
+	OpenGL->MatrixTranslation(matrixGameObject1, -30.0f, 4.75f, -10.0f);
 
 	float* matrixGameObject2 = Object3d2->GetWorldMatrix();
 	OpenGL->MatrixTranslation(matrixGameObject2, -40.0f, 6.0f, -10.0f);
+
+	float* matrixGameObject3 = Object3d3->GetWorldMatrix();
+	OpenGL->MatrixTranslation(matrixGameObject3, -20.0f, 6.0f, 0.0f);
 
 	return result;
 }

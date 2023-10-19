@@ -84,6 +84,7 @@ private:
 	GameObject* Object3d;
 	GameObject* Object3d1;
 	GameObject* Object3d2;
+	GameObject* Object3d3;
 
 	//Variables de Movimiento (Traslacion)
 	float speedAxisX;

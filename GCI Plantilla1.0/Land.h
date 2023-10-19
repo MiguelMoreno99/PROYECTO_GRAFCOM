@@ -49,7 +49,7 @@ public:
 		// Cargamos el mapa de alturas(Heightmap) de la figura
 		Carga(mapaDeAlturaHeightmap);
 		//en caso del puntero de la imagen sea nulo se brinca esta opcion
-		land = Plano(Ancho(), Alto(), anchoDeseado, profundidadDeseada, Dir_Imagen(), 80);
+		land = Plano(Ancho(), Alto(), anchoDeseado, profundidadDeseada, Dir_Imagen(), 50);
 		deltax = anchoFinal / Ancho();
 		deltaz = profunidadFinal / Alto();
 		verx = Ancho();
