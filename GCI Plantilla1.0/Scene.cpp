@@ -149,8 +149,8 @@ bool Scene::Initialize() {
 	}
 
 	Object3d3 = new GameObject(OpenGL, handlerWindow, LoaderTexture,
-		"recursos/Gato/gato.obj",
-		"recursos/Gato/gato.jpg");
+		"recursos/Muro/muro4.obj",
+		"recursos/Muro/muro.png");
 	if (!Object3d3) {
 		result = false;
 		MessageBoxA(handlerWindow, "Could not initialize the GameObject.", "Error", MB_OK);
@@ -167,6 +167,43 @@ bool Scene::Initialize() {
 		Object3d3->SetShaderModel(ShaderModel);
 	}
 
+	Object3d4 = new GameObject(OpenGL, handlerWindow, LoaderTexture,
+		"recursos/Gato/gato.obj",
+		"recursos/Gato/gato.jpg");
+	if (!Object3d4) {
+		result = false;
+		MessageBoxA(handlerWindow, "Could not initialize the GameObject.", "Error", MB_OK);
+		_RPT1(0, "Alert! GameObject has an error on start. \n", 0);
+		return result;
+	}
+	else {
+		result = Object3d4->Initialize();
+		if (!result) {
+			MessageBoxA(handlerWindow, "Could not initialize the model of Gameobject.", "Error", MB_OK);
+			_RPT1(0, "Alert! GameObject has an error on initialize. \n", 0);
+			return result;
+		}
+		Object3d4->SetShaderModel(ShaderModel);
+	}
+
+	Object3d5 = new GameObject(OpenGL, handlerWindow, LoaderTexture,
+		"recursos/camino/camino2.obj",
+		"recursos/camino/camino.png");
+	if (!Object3d5) {
+		result = false;
+		MessageBoxA(handlerWindow, "Could not initialize the GameObject.", "Error", MB_OK);
+		_RPT1(0, "Alert! GameObject has an error on start. \n", 0);
+		return result;
+	}
+	else {
+		result = Object3d5->Initialize();
+		if (!result) {
+			MessageBoxA(handlerWindow, "Could not initialize the model of Gameobject.", "Error", MB_OK);
+			_RPT1(0, "Alert! GameObject has an error on initialize. \n", 0);
+			return result;
+		}
+		Object3d5->SetShaderModel(ShaderModel);
+	}
 	return result;
 }
 
@@ -210,6 +247,8 @@ bool Scene::Render() {
 	Object3d1->Render(viewMatrix, projectionMatrix);
 	Object3d2->Render(viewMatrix, projectionMatrix);
 	Object3d3->Render(viewMatrix, projectionMatrix);
+	Object3d4->Render(viewMatrix, projectionMatrix);
+	Object3d5->Render(viewMatrix, projectionMatrix);
 
 	// Damos la instruccion de que termino la escena para que nos muestre frame a frame.
 	OpenGL->EndScene();
@@ -231,19 +270,43 @@ bool Scene::Update(InputClass* input, float deltaTime) {
 
 	//float* matrixTriangle = Triangulo->GetWorldMatrix();
 	//OpenGL->MatrixTranslation(matrixTriangle, -20.0f, 8.0f, 0.0f);
-
 	float* matrixGameObject = Object3d->GetWorldMatrix();
-	OpenGL->MatrixTranslation(matrixGameObject, -20.0f, 6.0f, -10.0f);
-
 	float* matrixGameObject1 = Object3d1->GetWorldMatrix();
-	OpenGL->MatrixTranslation(matrixGameObject1, -30.0f, 4.75f, -10.0f);
-
 	float* matrixGameObject2 = Object3d2->GetWorldMatrix();
-	OpenGL->MatrixTranslation(matrixGameObject2, -40.0f, 6.0f, -10.0f);
-
 	float* matrixGameObject3 = Object3d3->GetWorldMatrix();
+	float* matrixGameObject4 = Object3d4->GetWorldMatrix();
+	float* matrixGameObject5 = Object3d5->GetWorldMatrix();
+
+	float* auxMatrix1 = new float[15] {0.0f};
+	float* auxMatrix2 = new float[15] {0.0f};
+	float* auxMatrix3 = new float[15] {0.0f};
+	float* auxMatrix4 = new float[15] {0.0f};
+
+	OpenGL->BuildIdentityMatrix(auxMatrix1);
+	OpenGL->BuildIdentityMatrix(auxMatrix2);
+	OpenGL->BuildIdentityMatrix(auxMatrix3);
+	OpenGL->BuildIdentityMatrix(auxMatrix4);
+
+	OpenGL->MatrixRotationY(matrixGameObject, (3.1416 / 2));
+	OpenGL->MatrixTranslation(auxMatrix2, -10.0f, 6.0f, -15.0f);
+	OpenGL->MatrixMultiply(matrixGameObject, matrixGameObject, auxMatrix2);
+
+
+	OpenGL->MatrixTranslation(matrixGameObject1, -40.0f, 4.75f, 0.0f);
+
+	OpenGL->MatrixRotationY(matrixGameObject2, (3.1416/2));
+	OpenGL->MatrixTranslation(auxMatrix1, -40.0f, 5.9f, -16.0f);
+	OpenGL->MatrixMultiply(matrixGameObject2, matrixGameObject2, auxMatrix1);
+
 	OpenGL->MatrixTranslation(matrixGameObject3, -20.0f, 6.0f, 0.0f);
 
+	OpenGL->MatrixRotationY(matrixGameObject4, (3.1416 / 2));
+	OpenGL->MatrixTranslation(auxMatrix3, -8.0f, 6.0f, 0.0f);
+	OpenGL->MatrixMultiply(matrixGameObject4, matrixGameObject4, auxMatrix3);
+
+	OpenGL->MatrixRotationY(matrixGameObject5, (3.1416 / 2));
+	OpenGL->MatrixTranslation(auxMatrix4, -21.0f, 5.5f, 2.2f);
+	OpenGL->MatrixMultiply(matrixGameObject5, matrixGameObject5, auxMatrix4);
 	return result;
 }
 

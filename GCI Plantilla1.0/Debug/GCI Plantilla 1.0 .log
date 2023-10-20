@@ -1,1 +1,22 @@
-﻿  GCI Plantilla 1.0 .vcxproj -> F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\Debug\GCI Plantilla 1.0.exe
+﻿  Scene.cpp
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Imagenes.h(61,26): warning C4101: 'e': unreferenced local variable
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Imagenes.h(80,28): warning C4101: 'e': unreferenced local variable
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Geometrias.h(56,126): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Geometrias.h(58,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Geometrias.h(59,126): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Geometrias.h(62,119): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Geometrias.h(64,38): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Geometrias.h(65,119): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Geometrias.h(215,55): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Geometrias.h(216,74): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Geometrias.h(217,55): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\gdipload.h(45,29): warning C4018: '<': signed/unsigned mismatch
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Scene.cpp(290,52): warning C4305: 'argument': truncation from 'double' to 'float'
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Scene.cpp(297,52): warning C4305: 'argument': truncation from 'double' to 'float'
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Scene.cpp(303,53): warning C4305: 'argument': truncation from 'double' to 'float'
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Scene.cpp(307,53): warning C4305: 'argument': truncation from 'double' to 'float'
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Scene.cpp(328,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Scene.cpp(329,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Scene.cpp(332,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\GCI Plantilla1.0\Scene.cpp(333,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  GCI Plantilla 1.0 .vcxproj -> F:\GRAFICAS_COMPUTACIONALES\GCI Plantilla 1.2\GCI Plantilla 1.2\Debug\GCI Plantilla 1.0.exe
